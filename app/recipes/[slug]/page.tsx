@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className=" mx-auto px-4 py-8 bg-gray-800 min-h-screen">
+    <main className="mx-auto px-4 py-8 bg-gray-800 min-h-screen">
       <div className="max-w-4xl mx-auto w-full">
         <h1 className="text-3xl font-bold mb-8 text-white">{recipe.title}</h1>
         <Image
@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           width={600}
           height={400}
         />
-        <div className="mb-4 text-white">
+        <div className="mb-8 text-white">
           <h2 className="text-xl font-bold mb-2">Ingredients</h2>
           <ul className="list-disc pl-5">
             {recipe.ingredients.map((ingredient, index) => (
@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             ))}
           </ul>
         </div>
-        <div className="mb-4 text-white">
+        <div className="mb-8 text-white">
           <h2 className="text-xl font-bold mb-2">Instructions</h2>
           <ol className="list-decimal pl-5">
             {recipe.instructions.map((instruction, index) => (

@@ -9,7 +9,7 @@ interface RecipeCardProps {
 export default function RecipeCard({ recipe }: RecipeCardProps) {
   return (
     <Link href={`/recipes/${recipe.slug}`} legacyBehavior>
-      <a className='block max-w-xs rounded overflow-hidden shadow-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 hover:shadow-xl transition duration-300'>
+      <a className='block max-w-xs rounded overflow-hidden shadow-lg bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 hover:shadow-xl transition duration-300'>
         <div className='relative h-56'>
           <Image
             src={recipe.imageUrl}
