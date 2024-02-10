@@ -16,9 +16,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <main className=" mx-auto px-4 py-8 bg-gray-800 min-h-screen">
       <div className="max-w-4xl mx-auto w-full">
-        <h1 className="text-3xl font-bold mb-4 text-white">{recipe.title}</h1>
+        <h1 className="text-3xl font-bold mb-8 text-white">{recipe.title}</h1>
         <Image
-          className="rounded-lg mb-4"
+          className="rounded-lg mb-8"
           src={recipe.imageUrl}
           alt={recipe.title}
           width={600}
