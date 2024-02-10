@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Recipe } from "../data";
+import { Recipe } from "@/data";
 import Image from "next/legacy/image";
 
 interface RecipeCardProps {

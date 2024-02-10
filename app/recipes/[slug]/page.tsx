@@ -1,5 +1,5 @@
 import Image from "next/image";
-import recipes, { Recipe } from "../../../data";
+import recipes, { Recipe } from "@/data";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { slug: string } }) {

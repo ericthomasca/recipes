@@ -1,6 +1,5 @@
-import { Recipe } from '../data'; 
-import recipes from '../data'; 
-import RecipeCard from '../components/RecipeCard'; 
+import recipes, { Recipe } from '@/data'; 
+import RecipeCard from '@/components/RecipeCard'; 
 
 export default function Home() {
   return (
