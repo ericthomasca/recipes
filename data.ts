@@ -47,7 +47,7 @@ export interface Recipe {
       id: 2,
       title: 'Chocolate Chip Cookies',
       slug: 'chocolate-chip-cookies',
-      imageUrl: 'https://placehold.co/600x400',
+      imageUrl: '/img/chocolate-chip-cookies.jpg',
       ingredients: [
         "1 cup (2 sticks) unsalted butter, softened",
         "3/4 cup granulated sugar",
@@ -77,7 +77,7 @@ export interface Recipe {
       id: 3,
       title: 'Chicken Noodle Soup',
       slug: 'chicken-noodle-soup',
-      imageUrl: 'https://placehold.co/600x400',
+      imageUrl: '/img/chicken-noodle-soup.jpg',
       ingredients: [
         "8 cups chicken broth",
         "2 cups chopped cooked chicken",
@@ -102,7 +102,7 @@ export interface Recipe {
       id: 4,
       title: 'Meatloaf',
       slug: 'meatloaf',
-      imageUrl: 'https://placehold.co/600x400',
+      imageUrl: '/img/meatloaf.jpg',
       ingredients: [
         "1 1/2 pounds ground beef",
         "1 egg",
