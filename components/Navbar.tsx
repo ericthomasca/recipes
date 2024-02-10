@@ -3,7 +3,7 @@
 import { useState, ChangeEvent } from "react";
 import recipes, { Recipe } from "@/data";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import SearchResultItem from "@/components/SearchResultItem";
 
 export default function Navbar() {
