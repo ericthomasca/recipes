@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, ChangeEvent } from "react";
-import recipes, { Recipe } from "../data";
+import recipes, { Recipe } from "@/data";
 import Link from "next/link";
 import Image from "next/legacy/image";
 
