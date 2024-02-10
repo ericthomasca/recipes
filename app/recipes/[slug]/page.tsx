@@ -1,4 +1,5 @@
-import recipes, { Recipe } from "@/data";
+import Image from "next/image";
+import recipes, { Recipe } from "../../../data";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }: { params: { slug: string } }) {
@@ -16,10 +17,12 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <main className=" mx-auto px-4 py-8 bg-gray-800 min-h-screen">
       <div className="max-w-4xl mx-auto w-full">
         <h1 className="text-3xl font-bold mb-4 text-white">{recipe.title}</h1>
-        <img
-          className="w-full rounded-lg mb-4"
+        <Image
+          className="rounded-lg mb-4"
           src={recipe.imageUrl}
           alt={recipe.title}
+          width={600}
+          height={400}
         />
         <div className="mb-4 text-white">
           <h2 className="text-xl font-bold mb-2">Ingredients</h2>
