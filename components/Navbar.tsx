@@ -21,6 +21,9 @@ export default function Navbar() {
             aria-expanded='false'
             className='md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1'
           >
+
+
+            {/* Search Icon */}
             <svg
               className='w-5 h-5'
               aria-hidden='true'
@@ -36,10 +39,15 @@ export default function Navbar() {
                 d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
               />
             </svg>
+
+            
             <span className='sr-only'>Search</span>
           </button>
           <div className='relative hidden md:block'>
             <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
+              
+              
+              {/* Search Icon */}
               <svg
                 className='w-4 h-4 text-gray-500 dark:text-gray-400'
                 aria-hidden='true'
@@ -55,6 +63,8 @@ export default function Navbar() {
                   d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
                 />
               </svg>
+
+
               <span className='sr-only'>Search icon</span>
             </div>
             <input
@@ -71,7 +81,7 @@ export default function Navbar() {
             aria-controls='navbar-search'
             aria-expanded='false'
           >
-            <span className='sr-only'>Open main menu</span>
+            {/* Menu Icon (Mobile) */}
             <svg
               className='w-5 h-5'
               aria-hidden='true'
@@ -87,6 +97,7 @@ export default function Navbar() {
                 d='M1 1h15M1 7h15M1 13h15'
               />
             </svg>
+            <span className='sr-only'>Open main menu</span>
           </button>
         </div>
         <div
@@ -95,6 +106,9 @@ export default function Navbar() {
         >
           <div className='relative mt-3 md:hidden'>
             <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
+              
+
+              {/* Search Icon (Mobile) */}
               <svg
                 className='w-4 h-4 text-gray-500 dark:text-gray-400'
                 aria-hidden='true'
@@ -110,6 +124,8 @@ export default function Navbar() {
                   d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z'
                 />
               </svg>
+
+
             </div>
             <input
               type='text'
@@ -118,7 +134,8 @@ export default function Navbar() {
               placeholder='Search...'
             />
           </div>
-          <ul className='flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
+          {/* TODO Add links back later */}
+          {/* <ul className='flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
             <li>
               <Link
                 href='/'
@@ -143,7 +160,7 @@ export default function Navbar() {
                 Services
               </Link>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </div>
     </nav>
