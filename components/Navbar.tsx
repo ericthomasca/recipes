@@ -3,7 +3,8 @@
 import { useState, ChangeEvent } from "react";
 import recipes, { Recipe } from "@/data";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
+import SearchResultItem from "@/components/SearchResultItem";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -18,9 +19,13 @@ export default function Navbar() {
 
   const filteredRecipes =
     searchQuery.trim() !== ""
-      ? recipes.filter((recipe: Recipe) => {
-          return recipe.title.toLowerCase().includes(searchQuery.toLowerCase());
-        })
+      ? recipes
+          .filter((recipe: Recipe) => {
+            return recipe.title
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase());
+          })
+          .sort((a: Recipe, b: Recipe) => a.title.localeCompare(b.title))
       : [];
 
   return (
@@ -70,22 +75,11 @@ export default function Navbar() {
           {filteredRecipes.length > 0 && (
             <div className='absolute top-full left-0 w-full bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-600 rounded-b-lg z-10'>
               {filteredRecipes.map((recipe: Recipe) => (
-                <Link key={recipe.id} href={`/recipes/${recipe.slug}`} passHref>
-                  <div
-                    className='flex items-center p-2 border-b border-gray-200 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700'
-                    onClick={handleResultClick}
-                  >
-                    <Image
-                      src={recipe.imageUrl}
-                      alt={recipe.title}
-                      width={48}
-                      height={48}
-                    />
-                    <span className='text-sm text-gray-900 dark:text-white'>
-                      {recipe.title}
-                    </span>
-                  </div>
-                </Link>
+                <SearchResultItem
+                  key={recipe.id}
+                  recipe={recipe}
+                  onClick={handleResultClick}
+                />
               ))}
             </div>
           )}
