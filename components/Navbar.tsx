@@ -1,32 +1,37 @@
 "use client";
 
 import { useState, ChangeEvent } from "react";
-import recipes, { Recipe } from "@/data";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
+import { fetchRecipes } from "@/app/lib/data";
 import SearchResultItem from "@/components/SearchResultItem";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchResults, setSearchResults] = useState<Recipe[]>([]);
 
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(event.target.value);
+  const handleSearchChange = async (event: ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    if (query.trim() !== "") {
+      try {
+        const recipes = await fetchRecipes();
+        const filteredRecipes = recipes.filter((recipe) =>
+          recipe.title.toLowerCase().includes(query.toLowerCase())
+        );
+        setSearchResults(filteredRecipes);
+      } catch (error) {
+        console.error("Error fetching recipes:", error);
+      }
+    } else {
+      setSearchResults([]);
+    }
   };
 
   const handleResultClick = () => {
     setSearchQuery("");
+    setSearchResults([]);
   };
-
-  const filteredRecipes =
-    searchQuery.trim() !== ""
-      ? recipes
-          .filter((recipe: Recipe) => {
-            return recipe.title
-              .toLowerCase()
-              .includes(searchQuery.toLowerCase());
-          })
-          .sort((a: Recipe, b: Recipe) => a.title.localeCompare(b.title))
-      : [];
 
   return (
     <nav className='bg-white border-gray-200 dark:bg-gray-900'>
@@ -72,9 +77,9 @@ export default function Navbar() {
             />
           </div>
           {/* Search Results */}
-          {filteredRecipes.length > 0 && (
+          {searchResults.length > 0 && (
             <div className='absolute top-full left-0 w-full bg-white border border-gray-200 dark:bg-gray-800 dark:border-gray-600 rounded-b-lg z-10'>
-              {filteredRecipes.map((recipe: Recipe) => (
+              {searchResults.map((recipe: Recipe) => (
                 <SearchResultItem
                   key={recipe.id}
                   recipe={recipe}

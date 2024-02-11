@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/legacy/image";
-import { Recipe } from "@/data";
 
 interface SearchResultItemProps {
   recipe: Recipe;
@@ -15,7 +14,7 @@ export default function SearchResultItem({ recipe, onClick }: SearchResultItemPr
         onClick={onClick}
       >
         <Image
-          src={recipe.imageUrl}
+          src={recipe.image_url}
           alt={recipe.title}
           width={48}
           height={48}
